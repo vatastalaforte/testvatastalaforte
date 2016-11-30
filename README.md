@@ -31,3 +31,5 @@ You'll be able to enter the Wordpress console with the following link: <your-loc
 
 User: wordpress 
 Password: wordpress2016
+
+For any problems, If you need to start again the script, remember to remove the "wordpressubuntu_final" image from VirtualBox GUI!!!

@@ -46,14 +46,22 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+#define('AUTH_KEY',         'put your unique phrase here');
+#define('SECURE_AUTH_KEY',  'put your unique phrase here');
+#define('LOGGED_IN_KEY',    'put your unique phrase here');
+#define('NONCE_KEY',        'put your unique phrase here');
+#define('AUTH_SALT',        'put your unique phrase here');
+#define('SECURE_AUTH_SALT', 'put your unique phrase here');
+#define('LOGGED_IN_SALT',   'put your unique phrase here');
+#define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         'eN9@Tl{U!MuCY5=tJ3_#Z6hW[^F`loOr2ra)//>+/.65y&7auL=s|JfqwKTCk~eM');
+define('SECURE_AUTH_KEY',  '|i<1,@GR|Z0]rFwD;6-`tp=HcQ[v0=mskR_agH+_eIpcqet/*T>Uzm|TnvQK]9y+');
+define('LOGGED_IN_KEY',    'M6AimJ=$Hl.X0cw.#KpmD)2 CbMciWDwO+F0)ZAxs-D$@lJ$+C$^-InQAh3DY0:j');
+define('NONCE_KEY',        'V-5b?sFB=p8vd=!cMunIv:P na$u58~3TR`iAmpCmMEY.Y!y;d+$`4GJeE1f56o+');
+define('AUTH_SALT',        'C3/j.4d}0c5P^RN(9kPbp:m(~fa0EV+#;?Pb~5Y-=GMgMZ3/gEk+]|ed%1L=B;iT');
+define('SECURE_AUTH_SALT', 'BVyT|PFc7_?-+7Y_=;684`#ikwVQa/gcWQ?)e{h=4]G]M^i|~JH&K+phCKgpQ7oO');
+define('LOGGED_IN_SALT',   'X;=D,R&[AMsIoABxjz$yVBy._tM3>.-u3gGFqu|p6wDHtw/`t-;K|@O^cUIO2sG]');
+define('NONCE_SALT',       '_?};P{6){|*(DRZ{[dE-bxPi?OA!uKt||[Tka@:^|;Vd,C&oh=h8TT)-5zFxCXF%');
 
 /**#@-*/
 
@@ -64,6 +72,13 @@ define('NONCE_SALT',       'put your unique phrase here');
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix  = 'wp_';
+
+# Enable all core updates, including minor and major:
+define( 'WP_AUTO_UPDATE_CORE', true );
+
+# Turn off PHP error reporting
+error_reporting(0);
+@ini_set(‘display_errors’, 0);
 
 /**
  * For developers: WordPress debugging mode.

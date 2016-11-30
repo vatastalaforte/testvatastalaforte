@@ -17,6 +17,9 @@ export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/bin/X11:/usr/local/sbin:/usr/loca
 LOG="/$HOME/log_`date "+%Y-%m-%d_%H%M%S"`_.log"
 ERRMSG="/$HOME/err_mgs_`date "+%Y-%m-%d_%H%M%S"`_.log"
 
+echo "Hello, please input your eth interface name: (verify with ifconfig)"
+read ethadapter
+
 echo "WELCOME ON THE INSTALLATION OF YOUR WORDPRESS VIRTUAL MACHINE!!!"
 echo "NOW THE INSTALLATION WILL START, TAKE A COFFEE AND BE PATIENT..."
 
@@ -100,7 +103,7 @@ VBoxManage storageattach $VM --storagectl "SATA Controller" --port 0 --device 0 
 VBoxManage modifyvm $VM --ioapic on
 VBoxManage modifyvm $VM --boot1 dvd --boot2 disk --boot3 none --boot4 none
 VBoxManage modifyvm $VM --memory 2048 --vram 16
-VBoxManage modifyvm $VM --nic1 bridged --nictype1 82540EM --bridgeadapter1 enp12s0
+VBoxManage modifyvm $VM --nic1 bridged --nictype1 82540EM --bridgeadapter1 $ethadapter
 #VBoxManage modifyvm $VM --nic1 nat --nictype1 82540EM --cableconnected1 on
 VBoxManage startvm $VM --type gui
 #sudo VBoxHeadless -s $VM
@@ -132,7 +135,7 @@ fi
 #done
 
 # Execute an arp-scan to match mac address and obtain the machine IP
-sudo arp-scan --interface=enp12s0 --localnet | awk '{print $1" "$2" "$3}' > /tmp/list-interface.tmp
+sudo arp-scan --interface=$ethadapter --localnet | awk '{print $1" "$2" "$3}' > /tmp/list-interface.tmp
 while IFS=" " read -r ip mac desc
 do 
   if [ "$mac" = "$mymac" ]; then 
@@ -153,6 +156,8 @@ sudo scp /$HOME/wp-config.php /$HOME/setup-wordpress.sh wordpress@$ip_final:/var
 #sudo scp /$HOME/setup-wordpress.sh wordpress@$ip_final:/var/www/html/wp-admin/setup-wordpress.sh
 
 sshpass -p 'wordpress2016' ssh -o "StrictHostKeyChecking no" wordpress@$ip_final "bash -s" <./start-wordpress-setup.sh
+
+#sudo mysql -u root -pwordpress16 -e "CREATE DATABASE wordpress; CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpress2016'; GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost; FLUSH PRIVILEGES;"
 
 echo "INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final and enjoy youw Wordpress installation!!!"
 echo "`date "+%Y-%m-%d_%H%M%S"`_INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final and enjoy youw Wordpress installation!!!" >> $LOG

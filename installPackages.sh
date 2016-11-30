@@ -15,5 +15,3 @@ sudo mv wordpress/* /var/www/html
 sudo rm /var/www/html/index.html
 
 sudo chown wordpress /var/www/html/
-
-#sudo mysql -u root -pwordpress16 -e "CREATE DATABASE wordpress; CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpress2016'; GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost; FLUSH PRIVILEGES;"

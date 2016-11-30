@@ -5,7 +5,7 @@ ASSUMPTIONS:
 - This project is dedicated to that developers who need a local VM with a Wordpress installation/configuration, It's recommended a machine with a minumun of 4 cores, 8GB of RAM, SSD disk with 16GB free space
 - You must have preferably the last version of Ubuntu Desktop ( 16.10 )
 - Your user must have the NOPWD:ALL on sudoers file or allow the members of sudo group ( using sudo visudo )
-- You must know the interface adapter of your laptop through which you connect to Internet because the script ask for It 
+- You must know the interface adapter of your laptop through which you connect to Internet because the script asks for It 
 - The Ubuntu Server 14 x64 image was created using an unattend installation with the following howto: http://gyk.lt/ubuntu-14-04-desktop-unattended-installation/. You will find in this project the file created by system-config-kickstart ( ks.cfg and ubuntu-auto.seed )
 - The Ubuntu Server 14 x64 image will be downloaded, as a tar compressed file, from a Dropbox link ( 550MB )
 - The Ubuntu Server 14 x64 image is secured with active firewall ( ufw ) that permits only http and ssh connections
@@ -29,7 +29,7 @@ In this project you'll find the following files:
 
 Please fork the project, pull It and place installPackages.sh, start.sh, setup-wordpress.sh, wp-config.php and start-wordpress-setup.sh in your $HOME directory.
 At the end of the script, will be asked to enter the wordpress user password ( wordpress2016 ) to complete the default app configuration.
-You'll be able to enter the Wordpress console with the following link: 'your-local-ip'/wp-admin/
+You'll be able to enter the Wordpress console with the following link: your-local-ip/wp-admin/
 
 User: wordpress 
 Password: wordpress2016

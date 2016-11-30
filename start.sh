@@ -5,8 +5,6 @@
 # name   : start.sh
 # version: 1.0.0
 #
-# history
-# - 2016-11-28 : first release
 #=============================================================================
 #
 # NOTE:
@@ -29,9 +27,14 @@ sudo apt-get update -y >/dev/null
 
 # Get the iso image from the central repo
 if [ -f /$HOME/WordpressUbuntuWithMySQL.tar ]; then
-    echo "The OS image is present on your Home"
-    echo "`date "+%Y-%m-%d_%H%M%S"`_The OS image is present on you Home, going to extract..." > $LOG
-    tar -zxvf /$HOME/WordpressUbuntuWithMySQL.tar
+    if [ -f /$HOME/WordpressUbuntuWithMySQL.vdi ]; then
+        echo "The OS image is present on your Home"
+        echo "`date "+%Y-%m-%d_%H%M%S"`_The OS image is present on you Home" > $LOG
+    else
+        echo "The TAR file is present on your Home, going to extract..."
+        echo "`date "+%Y-%m-%d_%H%M%S"`_The OS image is present on you Home, going to extract..." > $LOG
+        tar -zxvf /$HOME/WordpressUbuntuWithMySQL.tar
+    fi
 else
     echo "The OS image is NOT present on your Home, going to download It and extract..."
     echo "`date "+%Y-%m-%d_%H%M%S"`_The OS image is NOT present on you Home, going to download It and extract..." >> $LOG
@@ -50,7 +53,7 @@ echo "---------------------" >> $LOG
 sudo apt-get install virtualbox-5.0 -y | tee /tmp/virtualbox_error 
 EXIT_CODE=$?
 if [ $EXIT_CODE -ne 0 ]; then
-    echo "`date "+%Y-%m-%d_%H%M%S"`_ An error occurred while installing Virtualbox" >> $ERRMSG
+    echo "`date "+%Y-%m-%d_%H%M%S"`_ An error occurred while installing Virtualbox" > $ERRMSG
     cat /tmp/virtualbox_error >> $ERRMSG
 	exit 1
 	fi
@@ -159,5 +162,5 @@ sshpass -p 'wordpress2016' ssh -o "StrictHostKeyChecking no" wordpress@$ip_final
 
 #sudo mysql -u root -pwordpress16 -e "CREATE DATABASE wordpress; CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpress2016'; GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost; FLUSH PRIVILEGES;"
 
-echo "INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final and enjoy youw Wordpress installation!!!"
+echo "INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final to view the default app or HTTP://$ip_final/wp-admin to enter the console, and enjoy youw Wordpress installation!!!"
 echo "`date "+%Y-%m-%d_%H%M%S"`_INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final and enjoy youw Wordpress installation!!!" >> $LOG

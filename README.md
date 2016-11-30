@@ -2,6 +2,7 @@
 
 ASSUMPTIONS:
 
+- This project is dedicated to that developers who need a local VM with a Wordpress installation/configuration, It's recommended a machine with a minumun of 4 cores, 8GB of RAM, SSD disk with 16GB free space
 - You must have preferably the last version of Ubuntu Desktop ( 16.10 )
 - Your user must have the NOPWD:ALL on sudoers file or allow the members of sudo group ( using sudo visudo )
 - You must know the interface adapter of your laptop through which you connect to Internet because the script ask for It 

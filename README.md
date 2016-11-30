@@ -25,4 +25,9 @@ In this project you'll find the following files:
 - The main file start.sh, It's responsable to execute the entire project
 - installPackages.sh, necessary for the LAMW installation ( note, not LAMP because MySQL was installed before :-) ) 
 
-Please fork the project, pull It and place installPackages.sh, start.sh, setup-wordpress.sh, wp-config.php and start-wordpress-setup.sh in your $HOME directory
+Please fork the project, pull It and place installPackages.sh, start.sh, setup-wordpress.sh, wp-config.php and start-wordpress-setup.sh in your $HOME directory.
+At the end of the script, will be asked to enter the wordpress user password ( wordpress2016 ) to complete the default app configuration.
+You'll be able to enter the Wordpress console with the following link: <your-local-ip>/wp-admin/
+
+User: wordpress 
+Password: wordpress2016

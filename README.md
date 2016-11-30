@@ -9,6 +9,7 @@ ASSUMPTIONS:
 - The Ubuntu Server 14 x64 image will be downloaded, as a tar compressed file, from a Dropbox link ( 550MB )
 - The Ubuntu Server 14 x64 image is secured with active firewall ( ufw ) that permits only http and ssh connections
 - The root database password is secured for administrative purposes, the wordpress user will obtain only It's own credentials
+- During MySQL installation was removed the anonymous user login and disabled the auto remote login
 
 WORDPRESS CONFIGURATION:
 

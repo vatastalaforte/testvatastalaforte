@@ -163,4 +163,4 @@ sshpass -p 'wordpress2016' ssh -o "StrictHostKeyChecking no" wordpress@$ip_final
 #sudo mysql -u root -pwordpress16 -e "CREATE DATABASE wordpress; CREATE USER wordpressuser@localhost IDENTIFIED BY 'wordpress2016'; GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost; FLUSH PRIVILEGES;"
 
 echo "INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final to view the default app or HTTP://$ip_final/wp-admin to enter the console, and enjoy youw Wordpress installation!!!"
-echo "`date "+%Y-%m-%d_%H%M%S"`_INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final and enjoy youw Wordpress installation!!!" >> $LOG
+echo "`date "+%Y-%m-%d_%H%M%S"`_INSTALLATION COMPLETED, PLEASE VISIT HTTP://$ip_final to view the default app or HTTP://$ip_final/wp-admin to enter the console, and enjoy youw Wordpress installation!!!" >> $LOG
